@@ -702,6 +702,10 @@ app.post("/api/ai-assist", async (req, res) => {
   }
 });
 
+app.get("/api/hello", (req, res) => {
+  res.json({ message: "Hello, world!" });
+});
+
 app.listen(port, () => {
   logEvidence("info", `Delve backend server running on port ${port}`);
   console.log(`Backend server running on http://localhost:${port}`);
