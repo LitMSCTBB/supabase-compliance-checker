@@ -26,7 +26,7 @@ app.use(
 );
 
 // Handle preflight requests
-app.options("*", cors());
+app.options("/api/*", cors());
 
 app.use(express.json());
 
