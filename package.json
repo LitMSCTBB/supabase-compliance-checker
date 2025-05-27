@@ -1,0 +1,21 @@
+{
+  "name": "supabase-compliance",
+  "version": "1.0.0",
+  "description": "Root project for managing frontend and backend services",
+  "scripts": {
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\" --names \"BACKEND,FRONTEND\" --prefix-colors \"blue,green\"",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\" --names \"BACKEND,FRONTEND\" --prefix-colors \"blue,green\"",
+    "start:frontend": "cd frontend && npm run start",
+    "start:backend": "cd backend && npm run start",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  },
+  "dependencies": {
+    "openai": "^4.103.0",
+    "sonner": "^2.0.3"
+  }
+}
