@@ -17,17 +17,30 @@ const puppeteer = require("puppeteer");
 const app = express();
 const port = process.env.NODE_PORT || 3001;
 
+// ✅ CORS config
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://supabase-compliance-checker-ten.vercel.app",
+];
+
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://supabase-compliance-checker-ten.vercel.app"],
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     methods: ["GET", "POST", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-// Handle preflight requests
-app.options("/api/*", cors());
+// ✅ Preflight support
+app.options("*", cors()); // Accept all OPTIONS routes
 
+// ✅ JSON parser
 app.use(express.json());
 
 const evidenceLogPath = path.join(__dirname, "evidence.log");
