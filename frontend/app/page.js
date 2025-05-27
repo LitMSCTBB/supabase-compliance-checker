@@ -630,10 +630,12 @@ export default function HomePage() {
                     <div className="text-center">
                       <p>Ask me about your compliance status, for example:</p>
                       <ul className="mt-2 text-sm space-y-1">
-                        <li>"What's my current compliance status?"</li>
-                        <li>"Generate RLS policies for my tables"</li>
-                        <li>"Create a compliance documentation"</li>
-                        <li>"Why did my MFA check fail?"</li>
+                        <li>
+                          &quot;What&apos;s my current compliance status?&quot;
+                        </li>
+                        <li>&quot;Generate RLS policies for my tables&quot;</li>
+                        <li>&quot;Create a compliance documentation&quot;</li>
+                        <li>&quot;Why did my MFA check fail?&quot;</li>
                       </ul>
                     </div>
                   ) : (
