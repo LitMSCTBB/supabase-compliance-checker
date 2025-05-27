@@ -17,7 +17,17 @@ const puppeteer = require("puppeteer");
 const app = express();
 const port = process.env.NODE_PORT || 3001;
 
-app.use(cors());
+app.use(
+  cors({
+    origin: ["http://localhost:3000", "https://your-frontend.vercel.app"],
+    methods: ["GET", "POST", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
+
+// Handle preflight requests
+app.options("*", cors());
+
 app.use(express.json());
 
 const evidenceLogPath = path.join(__dirname, "evidence.log");
