@@ -38,7 +38,7 @@ app.use(
 );
 
 // ✅ Preflight support
-app.options("/api/*", cors()); // Accept all OPTIONS routes
+app.options("/api/:id", cors()); // Accept all OPTIONS routes
 
 // ✅ JSON parser
 app.use(express.json());
